@@ -2,6 +2,7 @@ const clockContainer = document.getElementById('clock-container');
 const clockTimeElement = document.getElementById('clock-time');
 const background = document.getElementById('background');
 const buttons = document.querySelectorAll('.timezone-buttons button');
+const pet = document.getElementById('pet');
 let currentTimeZone = 'America/Sao_Paulo'; // Fuso horário padrão
 let currentCityClass = 'brasilia'; // Classe inicial
 
@@ -54,6 +55,14 @@ document.addEventListener('mousemove', (event) => {
   } else {
     clockContainer.classList.remove('active', currentCityClass);
   }
+});
+
+// Efeito de pulo no pet ao clicar
+pet.addEventListener('click', () => {
+  pet.classList.add('jump');
+  setTimeout(() => {
+    pet.classList.remove('jump');
+  }, 300); // Duração do pulo
 });
 
 // Atualiza o relógio a cada segundo
