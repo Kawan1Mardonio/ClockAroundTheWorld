@@ -37,33 +37,6 @@ body {
     transition: background 0.3s, border-color 0.3s;
   }
   
-  .clock-container.active {
-    background: radial-gradient(circle, #6a0dad, #9400d3);
-    border-color: #6a0dad;
-  }
-  
-  .clock-container.bigbang {
-    animation: bigBang 0.8s forwards;
-  }
-  
-  @keyframes bigBang {
-    0% {
-      transform: scale(1);
-      opacity: 1;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-    }
-    50% {
-      transform: scale(1.5);
-      opacity: 0.5;
-      box-shadow: 0 0 50px rgba(255, 255, 255, 1);
-    }
-    100% {
-      transform: scale(0.8);
-      opacity: 0;
-      box-shadow: 0 0 0 rgba(255, 255, 255, 0);
-    }
-  }
-  
   .clock-time {
     position: absolute;
     font-size: 3rem;
@@ -93,24 +66,65 @@ body {
     transform: scale(1.1);
   }
   
-  /* Definições de cores para cada cidade */
-  .clock-container.brasilia:hover {
-    background: radial-gradient(circle, #0b6623, #ffcc00); /* Verde e amarelo de Brasília */
-    border-color: #ffcc00;
+  /* Estilo do pet */
+  .pet {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease-in-out;
   }
   
-  .clock-container.newyork:hover {
-    background: radial-gradient(circle, #828282, #ffc107); /* Cinza e amarelo-táxi de NY */
-    border-color: #ffc107;
+  .pet img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
   }
   
-  .clock-container.london:hover {
-    background: radial-gradient(circle, #da291c, #00247d); /* Vermelho e azul de Londres */
-    border-color: #00247d;
+  /* Animação do tremor */
+  .pet:hover {
+    animation: shake 0.5s ease-in-out infinite;
   }
   
-  .clock-container.tokyo:hover {
-    background: radial-gradient(circle, #bc002d, #ffb7c5); /* Vermelho e rosa de Tóquio */
-    border-color: #ffb7c5;
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-10px);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    75% {
+      transform: translateX(-10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Adiciona o efeito de "explosão" do relógio */
+  .clock-container.bigbang {
+    animation: bigBang 0.8s forwards;
+  }
+  
+  @keyframes bigBang {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.5;
+      box-shadow: 0 0 50px rgba(255, 255, 255, 1);
+    }
+    100% {
+      transform: scale(0.8);
+      opacity: 0;
+      box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
   }
   
